@@ -13,6 +13,8 @@ public class Testa {
             cd2.setNome("Leonardo");
             cd2.setValidade("04/2024");
             cd2.setConta(cc1);
+ 
+            cd2.getConta().getSaldo();
             
             System.out.println("Cartão de débito 1 " + cd1.toString());
             System.out.println("Cartão de débito 2 " + cd2.toString());
