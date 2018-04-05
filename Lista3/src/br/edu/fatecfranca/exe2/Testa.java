@@ -10,20 +10,32 @@ public class Testa {
         o1.setNumero(236);
         o1.adicionaPassageiro(p1);
         o1.adicionaPassageiro(p2);
-        o1.adicionaPassageiro(p3);
-        o1.adicionaPassageiro(p4);
         
-        System.out.println(o1.toString());
+        Onibus o2 = new Onibus();
+        o2.setNumero(632);
+        o2.adicionaPassageiro(p3);
+        o2.adicionaPassageiro(p4);
+        
+        Rodoviaria rodo = new Rodoviaria();
+        rodo.setNome("Rodo de Franca City");
+        rodo.setCidade("Franca");
+        rodo.adicionaOnibus(o1);
+        rodo.adicionaOnibus(o2);
+        
+      //  System.out.println(rodo.toString());
+        
+        //System.out.println(o1.toString());
      
-        o1.removePassageiro(p2);
-        System.out.println(o1.toString());
+       // o1.removePassageiro(p2);
+       // System.out.println(o1.toString());
         
-        System.out.println(o1.consultaPassageiro(p4));
-        System.out.println(o1.consultaPassageiro(p2));
+       // System.out.println(o1.consultaPassageiro(p4));
+       // System.out.println(o1.consultaPassageiro(p2));
         
         Passageiro p5 = new Passageiro("Leonardo", 18);
-        o1.atualizaPassageiro(p2, p5);
-        System.out.println(o1.toString());
-        
+       // o1.atualizaPassageiro(p2, p5);
+      //  System.out.println(o1.toString());
+        rodo.adicionaPassageiro(p5, o2);
+         System.out.println(rodo.toString());
     }
 }
