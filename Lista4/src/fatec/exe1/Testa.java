@@ -1,26 +1,30 @@
 package fatec.exe1;
 public class Testa {
+    public static void polimorfismo(Animal animal){
+        // objeto animal é um camaleão, é polimórfico
+             System.out.println("\n " + animal.fala() + "\n " + animal.toString());   
+    }
     public static void main(String[] args) {
       Animal animal = new Animal("pantera");
-      System.out.println("\n " + animal.fala() + "\n " + animal.toString());
-      
+      polimorfismo(animal);
+       
       Passaro passaro = new Passaro("tucano");
-      System.out.println("\n " + passaro.fala() + "\n " + passaro.toString());
+      polimorfismo(passaro);
       
       Mamifero mamifero = new Mamifero("veloz");
-      System.out.println("\n " + mamifero.fala() + "\n " + mamifero.toString());
+      polimorfismo(mamifero);
       
       BemTeVi bemTeVi = new BemTeVi("rapidinho"); 
-      System.out.println("\n " + bemTeVi.fala() + "\n " + bemTeVi.toString());
+      polimorfismo(bemTeVi);
       
       Papagaio papagaio = new Papagaio("Tite", "da o pé louro"); 
-      System.out.println("\n " + papagaio.fala() + "\n " + papagaio.toString());
+      polimorfismo(papagaio);
       
       Cachorro cachorro = new Cachorro("nervozinho", true);
-      System.out.println("\n " + cachorro.fala() + "\n " + cachorro.toString());
+      polimorfismo(cachorro);
       
       Vaca vaca = new Vaca("leiteira");
-      System.out.println("\n " + vaca.fala() + "\n " + vaca.toString());                                
+      polimorfismo(vaca);
                       
     }
     
