@@ -159,14 +159,10 @@ public class TestaIGU extends javax.swing.JFrame {
         // TODO add your handling code here:
          String nomeAnimal = nome.getText();
          Animal objAnimal; Mamifero objMamifero;
-         if (animal.isSelected()){
-               objAnimal = new Animal(nomeAnimal);
-               resultado.setText(objAnimal.toString());
-         }
-         else if (mamifero.isSelected()){
+        if (mamifero.isSelected()){
                     objMamifero = new Mamifero(nomeAnimal);
                     resultado.setText(objMamifero.toString());
-              }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

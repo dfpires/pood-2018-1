@@ -1,5 +1,5 @@
 package fatec.exe1;
-public class Animal {
+public abstract class Animal {
     // protected significa public para as filhas e private
     // para as demais
     protected String nome;

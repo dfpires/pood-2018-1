@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class TestaIG extends javax.swing.JFrame {
     
-    Produto objProduto = new Produto();
+    Produto objProduto;
     Radio objRadio = new Radio();
     Tv objTv = new Tv();
     /**

@@ -5,9 +5,7 @@ public class Testa {
              System.out.println("\n " + animal.fala() + "\n " + animal.toString());   
     }
     public static void main(String[] args) {
-      Animal animal = new Animal("pantera");
-      polimorfismo(animal);
-       
+            
       Passaro passaro = new Passaro("tucano");
       polimorfismo(passaro);
       

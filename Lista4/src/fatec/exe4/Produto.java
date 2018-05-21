@@ -1,6 +1,6 @@
 package fatec.exe4;
 import java.util.Random;
-public class Produto {
+public abstract class Produto {
     protected int serial, volume;
     protected String teste;
     public Produto() {
@@ -13,12 +13,24 @@ public class Produto {
         this.volume = volume;
         this.teste = "não testado";
     }
-    public int getSerial() {      return serial;   }
-    public void setSerial(int serial) {        this.serial = serial;    }
-    public int getVolume() {        return volume;    }
-    public void setVolume(int volume) {        this.volume = volume;    }
-    public String getTeste() {        return teste;    }
-    public void setTeste(String teste) {        testaUnidade();    }
+    public int getSerial() {      
+        return serial;  
+    }
+    public void setSerial(int serial) {        
+        this.serial = serial;    
+    }
+    public int getVolume() {        
+        return volume;    
+    }
+    public void setVolume(int volume) {        
+        this.volume = volume;    
+    }
+    public String getTeste() {       
+        return teste;    
+    }
+    public void setTeste(String teste) {       
+        testaUnidade();    
+    }
     public boolean testaUnidade(){
         // 90% de chance do produto ser aprovado, 10% de reprovado
         if (this.teste.equals("não testado")){
