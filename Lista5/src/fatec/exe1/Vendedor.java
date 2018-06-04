@@ -17,7 +17,7 @@ public class Vendedor extends Funcionario{
     }
     @Override
     public float calculaSalario() {
-       return this.salarioBase + this.comissao; 
+       return this.salarioBase + this.comissao*this.salarioBase/100; 
     }
     @Override
     public String toString() {

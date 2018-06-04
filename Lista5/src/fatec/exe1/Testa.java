@@ -5,6 +5,7 @@
  */
 package fatec.exe1;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,9 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class Testa extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Testa
-     */
+    private ArrayList<Funcionario> funcionarios = new ArrayList();
     public Testa() {
         initComponents();
     }
@@ -30,6 +29,7 @@ public class Testa extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         gerente = new javax.swing.JRadioButton();
         assistente = new javax.swing.JRadioButton();
@@ -43,13 +43,17 @@ public class Testa extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         salarioBase = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Tipo do Funcionário");
 
+        buttonGroup1.add(gerente);
+        gerente.setSelected(true);
         gerente.setText("Gerente");
 
+        buttonGroup1.add(assistente);
         assistente.setText("Assistente");
 
         buttonGroup1.add(vendedor);
@@ -67,6 +71,13 @@ public class Testa extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Gera Folha Pagto");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -95,7 +106,10 @@ public class Testa extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(31, 31, 31)
-                                        .addComponent(jLabel5))))
+                                        .addComponent(jLabel5))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(jButton2))))
                             .addComponent(assistente)
                             .addComponent(gerente)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -131,7 +145,9 @@ public class Testa extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(salarioBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -151,19 +167,31 @@ public class Testa extends javax.swing.JFrame {
         
         if (gerente.isSelected()){
             Gerente gerente = new Gerente(vnome, vmatricula, vsalarioBase);
+            funcionarios.add(gerente); // adiciona o gerente na lista
             polimorfico(gerente);
         }
         else if (assistente.isSelected()){
                 Assistente assistente = new Assistente(vnome, vmatricula, vsalarioBase);
+                funcionarios.add(assistente); // adiciona o assistente na lista
                 polimorfico(assistente);
             }
             else {
                 float vcomissao = Float.parseFloat(comissao.getText());
                 Vendedor vendedor = new Vendedor(vnome, vmatricula, vsalarioBase, vcomissao);
+                funcionarios.add(vendedor); // adiciona o vendedor na lista
                 polimorfico(vendedor);
             }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        float folha = 0;
+        for(Funcionario funcionario: funcionarios){
+            folha = folha + funcionario.calculaSalario(); // polimorfismo
+        }
+        JOptionPane.showMessageDialog(null, folha);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,9 +231,11 @@ public class Testa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton assistente;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JTextField comissao;
     private javax.swing.JRadioButton gerente;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -217,3 +247,7 @@ public class Testa extends javax.swing.JFrame {
     private javax.swing.JRadioButton vendedor;
     // End of variables declaration//GEN-END:variables
 }
+
+
+// Testa da prova
+
